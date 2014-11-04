@@ -10,7 +10,7 @@ namespace ladamalina\VideoHelper;
 class VideoHelper {
 
     /**
-     * Hostnames used by Youtube & Vimeo
+     * Hosts used by Youtube & Vimeo
      * @var array
      */
     private static $_hosts = [
