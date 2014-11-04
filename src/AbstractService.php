@@ -26,6 +26,12 @@ abstract class AbstractService {
      */
     abstract public function idByUrl($url);
 
+    /**
+     * Get thumbnail
+     * Size may be specified as static::THUMB_SIZE_SQ, static::THUMB_SIZE_MQ, static::THUMB_SIZE_HQ
+     * @param $size
+     * @return mixed
+     */
     public function thumbnail($size) {
         if ($this->id) {
             return $this->thumbnailById($this->id, $size);
@@ -59,6 +65,12 @@ abstract class AbstractService {
         return $this->thumbnailById($this->idByUrl($url), $size);
     }
 
+    /**
+     * Get html embed code
+     * @param $width
+     * @param $height
+     * @return mixed
+     */
     public function embedCode($width, $height) {
         if ($this->id) {
             return $this->embedCodeById($this->id, $width, $height);
