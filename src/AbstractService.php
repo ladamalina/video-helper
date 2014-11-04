@@ -32,7 +32,7 @@ abstract class AbstractService {
      * @param $size
      * @return mixed
      */
-    public function thumbnail($size = self::THUMB_SIZE_HQ) {
+    public function thumbnail($size) {
         if ($this->id) {
             return $this->thumbnailById($this->id, $size);
         }
@@ -51,7 +51,7 @@ abstract class AbstractService {
      * @param $size
      * @return mixed
      */
-    abstract public function thumbnailById($id, $size = self::THUMB_SIZE_HQ);
+    abstract public function thumbnailById($id, $size);
 
     /**
      * Get thumbnail url by video url.
@@ -60,8 +60,9 @@ abstract class AbstractService {
      * @param string $size
      * @return mixed
      */
-    public function thumbnailByUrl($url, $size = self::THUMB_SIZE_HQ) {
+    public function thumbnailByUrl($url, $size) {
         $this->id = $this->idByUrl($url);
+
         return $this->thumbnailById($this->idByUrl($url), $size);
     }
 
@@ -71,7 +72,7 @@ abstract class AbstractService {
      * @param $height
      * @return mixed
      */
-    public function embedCode($width = self::EMBED_WIDTH_DEFAULT, $height = self::EMBED_WIDTH_DEFAULT) {
+    public function embedCode($width = self::EMBED_WIDTH_DEFAULT, $height = self::EMBED_HEIGHT_DEFAULT) {
         if ($this->id) {
             return $this->embedCodeById($this->id, $width, $height);
         }
@@ -90,7 +91,7 @@ abstract class AbstractService {
      * @param $height
      * @return mixed
      */
-    abstract public function embedCodeById($id, $width = self::EMBED_WIDTH_DEFAULT, $height = self::EMBED_WIDTH_DEFAULT);
+    abstract public function embedCodeById($id, $width = self::EMBED_WIDTH_DEFAULT, $height = self::EMBED_HEIGHT_DEFAULT);
 
     /**
      * Get html embed code by video url
@@ -99,7 +100,7 @@ abstract class AbstractService {
      * @param int $height
      * @return mixed
      */
-    public function embedCodeByUrl($url, $width = self::EMBED_WIDTH_DEFAULT, $height = self::EMBED_WIDTH_DEFAULT) {
+    public function embedCodeByUrl($url, $width = self::EMBED_WIDTH_DEFAULT, $height = self::EMBED_HEIGHT_DEFAULT) {
         return $this->embedCodeById($this->idByUrl($url), $width, $height);
     }
 }

@@ -47,8 +47,8 @@ Get thumbnail URL by Vimeo video ID
 $service = VideoHelper::serviceByName('Vimeo');
 $service->id = '110713161';
 
-// high quality (by default)
-$url = $service->thumbnail();
+// high quality
+$url = $service->thumbnail($service::THUMB_SIZE_HQ);
 
 // medium quality
 $url = $service->thumbnail($service::THUMB_SIZE_MQ);
@@ -64,6 +64,12 @@ Get thumbnail URL by Youtube video ID
 $service = VideoHelper::serviceByName('Youtube');
 $service->id = 'M7FIvfx5J10';
 
-// high quality (by default), other options also available
-$url = $service->thumbnail();
+// high quality
+$url = $service->thumbnail($service::THUMB_SIZE_HQ);
+
+// medium quality
+$url = $service->thumbnail($service::THUMB_SIZE_MQ);
+
+// standard quality
+$url = $service->thumbnail($service::THUMB_SIZE_SQ);
 ```

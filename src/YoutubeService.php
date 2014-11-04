@@ -8,13 +8,13 @@ namespace ladamalina\VideoHelper;
  */
 class YoutubeService extends AbstractService {
 
-    const THUMB_SIZE_SQ = 'sq';
-    const THUMB_SIZE_MQ = 'mq';
-    const THUMB_SIZE_HQ = 'hq';
+    const THUMB_SIZE_SQ = '1';
+    const THUMB_SIZE_MQ = 'mqdefault';
+    const THUMB_SIZE_HQ = 'hqdefault';
 
     private static $_hosts = ['youtube.com', 'www.youtube.com'];
 
-    private static $_thumbUrl = 'http://img.youtube.com/vi/{$id}/{$size}default.jpg';
+    private static $_thumbUrl = 'http://img.youtube.com/vi/{$id}/{$size}.jpg';
 
     /**
      * Get video id by given url
@@ -28,7 +28,7 @@ class YoutubeService extends AbstractService {
             $params = explode('&', $query);
             foreach ($params as $pair) {
                 list($key, $value) = explode('=', $pair);
-                if (in_array($key, 'v') and $value) {
+                if ($key === 'v' and $value) {
                     return $value;
                 }
             }
@@ -43,7 +43,7 @@ class YoutubeService extends AbstractService {
      * @param $size
      * @return mixed|null|string
      */
-    public function thumbnailById($id, $size = self::THUMB_SIZE_HQ) {
+    public function thumbnailById($id, $size) {
         if ($id) {
             $url = self::$_thumbUrl;
             $url = str_replace('{$id}', $id, $url);
@@ -62,7 +62,7 @@ class YoutubeService extends AbstractService {
      * @param int $height
      * @return null|string
      */
-    public function embedCodeById($id, $width = self::EMBED_WIDTH_DEFAULT, $height = self::EMBED_WIDTH_DEFAULT) {
+    public function embedCodeById($id, $width = self::EMBED_WIDTH_DEFAULT, $height = self::EMBED_HEIGHT_DEFAULT) {
         if ($id) {
             return "
                 <iframe

@@ -41,7 +41,7 @@ class VimeoService extends AbstractService {
      * @param string $size
      * @return null
      */
-    public function thumbnailById($id, $size = self::THUMB_SIZE_HQ) {
+    public function thumbnailById($id, $size) {
         if ($id) {
             $info = self::_getInfo($id);
             $index = 'thumbnail_'.$size;
@@ -60,9 +60,9 @@ class VimeoService extends AbstractService {
      * @param int $height
      * @return null|string
      */
-    public function embedCodeById($id, $width = self::EMBED_WIDTH_DEFAULT, $height = self::EMBED_WIDTH_DEFAULT) {
+    public function embedCodeById($id, $width = self::EMBED_WIDTH_DEFAULT, $height = self::EMBED_HEIGHT_DEFAULT) {
         return $id ? "<iframe
-            src = '//player.vimeo.com/video/'{$id}'
+            src = '//player.vimeo.com/video/{$id}'
             width = '{$width}'
             height = '{$height}'
             frameborder = '0'
