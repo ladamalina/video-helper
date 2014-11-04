@@ -32,7 +32,7 @@ abstract class AbstractService {
      * @param $size
      * @return mixed
      */
-    public function thumbnail($size) {
+    public function thumbnail($size = self::THUMB_SIZE_HQ) {
         if ($this->id) {
             return $this->thumbnailById($this->id, $size);
         }
@@ -71,7 +71,7 @@ abstract class AbstractService {
      * @param $height
      * @return mixed
      */
-    public function embedCode($width, $height) {
+    public function embedCode($width = self::EMBED_WIDTH_DEFAULT, $height = self::EMBED_WIDTH_DEFAULT) {
         if ($this->id) {
             return $this->embedCodeById($this->id, $width, $height);
         }
