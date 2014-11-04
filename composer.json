@@ -1,0 +1,21 @@
+{
+    "name": "ladamalina/video-helper",
+    "description": "VideoHelper provides functionality for embedding YouTube & Vimeo video.",
+    "keywords": ["vimeo", "youtube", "video"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nadezhda Ryabtsova",
+            "email": "nadezhdaryabtsova@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ladamalina\\VideoHelper\\": "src/"
+        }
+    }
+}
