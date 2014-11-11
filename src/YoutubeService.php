@@ -27,7 +27,7 @@ class YoutubeService extends AbstractService {
      */
     public function idByUrl($url) {
         $url_parts = parse_url($url);
-        if (isset($url_parts['host']) and in_array($url_parts['host'], self::$_hosts)) {
+        if (isset($url_parts['host']) and in_array($url_parts['host'], self::$_hosts) and isset($url_parts['query'])) {
             $query = $url_parts['query'];
             $params = explode('&', $query);
             foreach ($params as $pair) {

@@ -21,6 +21,20 @@ class VideoHelper {
         'www.vimeo.com' => 'Vimeo',
     ];
 
+    public static function isValidUrl($url) {
+        $service = self::serviceByUrl($url);
+        if ($service === null) {
+            return false;
+        }
+
+        $id = $service->idByUrl($url);
+        if (!$id) {
+            return false;
+        }
+
+        return true;
+    }
+
     /**
      * Get service helper object by video url.
      * Returns null if service may not be detected by given url.
