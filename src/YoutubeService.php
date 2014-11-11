@@ -12,7 +12,11 @@ class YoutubeService extends AbstractService {
     const THUMB_SIZE_MQ = 'mqdefault';
     const THUMB_SIZE_HQ = 'hqdefault';
 
-    private static $_hosts = ['youtube.com', 'www.youtube.com'];
+    private static $_hosts = [
+        'youtube.com', 
+        'm.youtube.com', 
+        'www.youtube.com'
+    ];
 
     private static $_thumbUrl = 'http://img.youtube.com/vi/{$id}/{$size}.jpg';
 

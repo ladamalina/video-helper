@@ -15,6 +15,7 @@ class VideoHelper {
      */
     private static $_hosts = [
         'youtube.com' => 'Youtube',
+        'm.youtube.com' => 'Youtube',
         'www.youtube.com' => 'Youtube',
         'vimeo.com' => 'Vimeo',
         'www.vimeo.com' => 'Vimeo',
